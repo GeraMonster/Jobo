@@ -4,7 +4,6 @@ AFTER INSERT
 AS 
 BEGIN 
 	INSERT INTO usuarioAuditoria(
-		ID_usuarioauditoria,
 		Nombre, 
 		Edad,
 		Correo,
@@ -14,7 +13,6 @@ BEGIN
 		FechaAuditoria
 	)
 	SELECT 
-		i.ID_usuario,
 		i.Nombre,
 		i.Edad,
 		i.Correo,
@@ -23,4 +21,5 @@ BEGIN
 		CURRENT_USER,
 		GETDATE()
 	FROM INSERTED i;
+
 END
